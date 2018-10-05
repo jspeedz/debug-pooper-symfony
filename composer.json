@@ -1,0 +1,15 @@
+{
+  "name": "jspeedz/symfony-debug-pooper",
+  "description": "",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "WJ",
+      "email": "email@example.com"
+    }
+  ],
+  "autoload-dev": {
+    "files": [ "src/Component/VarDumper/Resources/functions/dump.php" ]
+  }
+}
