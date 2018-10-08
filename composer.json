@@ -2,13 +2,17 @@
   "name": "jspeedz/symfony-debug-pooper",
   "description": "",
   "minimum-stability": "stable",
-  "license": "GPL-3.0-or-later",
+  "license": "MIT",
   "authors": [
     {
-      "name": "jspeedz"
+      "name": "jspeedz",
+      "role": "Developer"
     }
   ],
   "autoload-dev": {
+    "psr-4": {
+      "Jspeedz\\DebugPooper\\": "src/"
+    },
     "files": [ "src/Component/VarDumper/Resources/functions/dump.php" ]
   },
   "require": {
