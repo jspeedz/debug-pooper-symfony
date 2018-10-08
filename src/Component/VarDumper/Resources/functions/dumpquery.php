@@ -1,7 +1,7 @@
 <?php
 use Jspeedz\DebugPooper\Pooper\QueryDumper;
 
-if(!function_exists('💩')) {
+if(!function_exists('dumpQuery')) {
     /**
      * @param string $query
      * @param array $parameters
