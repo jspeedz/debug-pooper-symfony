@@ -1,6 +1,8 @@
 {
   "name": "jspeedz/symfony-debug-pooper",
-  "description": "",
+  "description": "Some more debugging methods to be used in a symfony framework",
+  "keywords": [ "debugging" ],
+  "type": "library",
   "minimum-stability": "stable",
   "license": "MIT",
   "authors": [
