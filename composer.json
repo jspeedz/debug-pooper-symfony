@@ -2,11 +2,10 @@
   "name": "jspeedz/symfony-debug-pooper",
   "description": "",
   "minimum-stability": "stable",
-  "license": "proprietary",
+  "license": "GPL-3.0-or-later",
   "authors": [
     {
-      "name": "WJ",
-      "email": "email@example.com"
+      "name": "jspeedz"
     }
   ],
   "autoload-dev": {
