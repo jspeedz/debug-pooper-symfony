@@ -16,6 +16,8 @@
     "files": [ "src/Component/VarDumper/Resources/functions/dump.php" ]
   },
   "require": {
-    "php": "^7.0"
+    "php": "^7.1",
+    "doctrine/dbal": "^2.8",
+    "ext-PDO": "^7.1"
   }
 }
