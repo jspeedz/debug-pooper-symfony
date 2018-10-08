@@ -11,5 +11,8 @@
   ],
   "autoload-dev": {
     "files": [ "src/Component/VarDumper/Resources/functions/dump.php" ]
+  },
+  "require": {
+    "php": "^7.0"
   }
 }
