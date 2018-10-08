@@ -6,24 +6,25 @@ use Jspeedz\Exception\InvalidParameterException;
 use Jspeedz\Exception\InvalidTypeException;
 use PDO;
 
-class Query {
+class QueryDumper {
     /**
      * Takes a query with placeholders and an array of parameters, and dumps them in a readable / executable format.
      *
      * @param string $query The query
      * @param array $params The parameters to be inserted into the placeholders in the query
      * @param int[] $types The types the parameters are in
+     * @return void
      *
      * @throws InvalidParameterException
      */
-    public static function preparedDump(string $query, array $params = [], array $types = []): void {
+    public static function dump(string $query, array $params = [], array $types = []): void {
         if(count($params) > 0) {
             if(count($types) !== 0 && count($types) !== count($params)) {
                 throw new InvalidParameterException('Param count did not match type count');
             }
 
             $params = array_map(function($value, $key) use ($types) {
-                return $this->formatValue($value, isset($types[$key]) ? $types[$key] : null);
+                return self::formatValue($value, isset($types[$key]) ? $types[$key] : null);
             }, $params);
 
             if(!is_numeric(array_pop(array_keys($params)))) {
@@ -45,8 +46,6 @@ class Query {
         }
 
         💩($query);
-
-        return;
     }
 
     /**
@@ -56,7 +55,7 @@ class Query {
      * @return int|string
      * @throws InvalidTypeException
      */
-    private function formatValue($value, ?int $type = null) {
+    private static function formatValue($value, ?int $type = null) {
         if($type === null) {
             // Do a best guess
             if(is_array($value)) {
