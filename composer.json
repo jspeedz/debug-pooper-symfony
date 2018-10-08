@@ -15,7 +15,10 @@
     "psr-4": {
       "Jspeedz\\DebugPooper\\": "src/"
     },
-    "files": [ "src/Component/VarDumper/Resources/functions/dump.php" ]
+    "files": [
+      "src/Component/VarDumper/Resources/functions/dump.php",
+      "src/Component/VarDumper/Resources/functions/dumpquery.php"
+    ]
   },
   "require-dev": {
     "php": "^7.1",
