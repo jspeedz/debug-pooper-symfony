@@ -1,7 +1,9 @@
 {
   "name": "jspeedz/symfony-debug-pooper",
-  "description": "",
-  "minimum-stability": "stable",
+  "description": "Some more debugging methods to be used in a symfony framework",
+  "keywords": [ "dump","debug" ],
+  "type": "library",
+  "minimum-stability": "dev",
   "license": "MIT",
   "authors": [
     {
@@ -13,11 +15,18 @@
     "psr-4": {
       "Jspeedz\\DebugPooper\\": "src/"
     },
-    "files": [ "src/Component/VarDumper/Resources/functions/dump.php" ]
+    "files": [
+      "src/Component/VarDumper/Resources/functions/dump.php",
+      "src/Component/VarDumper/Resources/functions/dumpquery.php"
+    ],
+    "exclude-from-classmap": [
+      "/Tests/"
+    ]
   },
-  "require": {
+  "require-dev": {
     "php": "^7.1",
     "doctrine/dbal": "^2.8",
-    "ext-PDO": "^7.1"
+    "ext-PDO": "^7.1",
+    "symfony/var-dumper": "^4.1"
   }
 }
