@@ -9,7 +9,7 @@ Dumping prepared statements into a readable, and usually executable SQL strings 
 #### Example 1:
 
 ```php
-QueryDumper::dump(
+dumpQuery(
     'SELECT 1 FROM x WHERE y = ?',
     [
         1234
@@ -26,7 +26,7 @@ Result:
 #### Example 2:
 
 ```php
-QueryDumper::dump(
+dumpQuery(
     'SELECT 1 FROM x WHERE y = :some_named_value',
     [
         'some_named_value' => 1234
