@@ -6,9 +6,16 @@ use Jspeedz\Exception\InvalidParameterException;
 use Jspeedz\Exception\InvalidTypeException;
 use PDO;
 
+// Load the global 💩() function (and in extension, dump())
+require_once __DIR__ . '/../Component/VarDumper/Resources/functions/dump.php';
+// Load the global dumpquery() function
+require_once __DIR__ . '/../Component/VarDumper/Resources/functions/dumpquery.php';
+
 class QueryDumper {
     /**
      * Takes a query with placeholders and an array of parameters, and dumps them in a readable / executable format.
+     * Please note that data types could be parsed wrong if you do not specify data types.
+     * Without it could for example not use indexes, or fail altogether.
      *
      * @param string $query The query
      * @param array $params The parameters to be inserted into the placeholders in the query
