@@ -30,11 +30,12 @@ class QueryDumper {
                 throw new InvalidParameterException('Param count did not match type count');
             }
 
-            $params = array_map(function($value, $key) use ($types) {
-                return self::formatValue($value, isset($types[$key]) ? $types[$key] : null);
-            }, $params);
+            array_walk($params, function(&$value, $key) use ($types) {
+                $value = self::formatValue($value, isset($types[$key]) ? $types[$key] : null);
+            });
 
-            if(!is_numeric(array_pop(array_keys($params)))) {
+            $keys = array_keys($params);
+            if(!is_numeric(array_pop($keys))) {
                 // These are named indexes
                 foreach($params as $param => $value) {
                     $query = str_replace(':' . $param, $value, $query);
