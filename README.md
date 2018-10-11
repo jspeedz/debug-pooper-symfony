@@ -1,4 +1,4 @@
-# symfony-debug-pooper
+# debug-pooper-symfony
 
 Tired of using symfony's dump(); method? Use 💩(); instead!
 
