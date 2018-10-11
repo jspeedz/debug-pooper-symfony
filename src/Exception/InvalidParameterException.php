@@ -1,5 +1,5 @@
 <?php
-namespace Jspeedz\Exception;
+namespace Jspeedz\DebugPooper\Exception;
 
 use Exception;
 

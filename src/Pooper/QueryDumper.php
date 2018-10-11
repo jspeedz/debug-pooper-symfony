@@ -2,8 +2,8 @@
 namespace Jspeedz\DebugPooper\Pooper;
 
 use Doctrine\DBAL\Connection;
-use Jspeedz\Exception\InvalidParameterException;
-use Jspeedz\Exception\InvalidTypeException;
+use Jspeedz\DebugPooper\Exception\InvalidParameterException;
+use Jspeedz\DebugPooper\Exception\InvalidTypeException;
 use PDO;
 
 // Load the global 💩() function (and in extension, dump())
