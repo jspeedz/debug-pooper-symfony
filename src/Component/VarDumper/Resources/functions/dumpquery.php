@@ -8,7 +8,7 @@ if(!function_exists('dumpQuery')) {
      * @param int[] $types
      * @return void
      *
-     * @throws \Jspeedz\Exception\InvalidParameterException
+     * @throws Jspeedz\DebugPooper\Exception\InvalidParameterException
      */
     function dumpQuery(string $query, array $parameters = [], array $types = []): void {
         QueryDumper::dump($query, $parameters, $types);
