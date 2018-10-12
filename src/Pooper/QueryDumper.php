@@ -81,13 +81,13 @@ class QueryDumper {
             if(is_array($value)) {
                 foreach($value as &$item) {
                     if(!is_numeric($item)) {
-                        $item = '\'' . $item . '\'';
+                        $item = '"' . $item . '"';
                     }
                 }
                 return implode(', ', $value);
             }
             elseif(!is_numeric($value)) {
-                return '\'' . $value . '\'';
+                return '"' . $value . '"';
             }
             else {
                 return $value;
