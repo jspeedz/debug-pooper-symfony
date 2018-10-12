@@ -1,7 +1,10 @@
 {
   "name": "jspeedz/debug-pooper-symfony",
   "description": "Some more debugging methods to be used in a symfony framework",
-  "keywords": [ "dump","debug" ],
+  "keywords": [
+    "dump",
+    "debug"
+  ],
   "type": "library",
   "minimum-stability": "dev",
   "license": "MIT",
@@ -32,6 +35,7 @@
     "php": "^7.1",
     "doctrine/dbal": "^2.8",
     "ext-PDO": "^7.1",
-    "symfony/var-dumper": "^4.1"
+    "symfony/var-dumper": "^4.1",
+    "phpunit/phpunit": "^7.5@dev"
   }
 }

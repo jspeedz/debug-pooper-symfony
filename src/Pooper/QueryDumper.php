@@ -20,18 +20,26 @@ class QueryDumper {
      * @param string $query The query
      * @param array $params The parameters to be inserted into the placeholders in the query
      * @param int[] $types The types the parameters are in
-     * @return void
+     * @param bool $output Returns the result instead of dumping if true
+     *
+     * @return null|string Depends on $output
      *
      * @throws InvalidParameterException
      */
-    public static function dump(string $query, array $params = [], array $types = []): void {
+    public static function dump(string $query, array $params = [], array $types = [], $output = false): ?string {
         if(count($params) > 0) {
             if(count($types) !== 0 && count($types) !== count($params)) {
                 throw new InvalidParameterException('Param count did not match type count');
             }
 
-            array_walk($params, function(&$value, $key) use ($types) {
+            $i = 0;
+            array_walk($params, function(&$value, $key) use (&$i, $types) {
+                if(!is_numeric($key) && !isset($types[$key])) {
+                    // Named indexes, and types are not named, so just use an index instead
+                    $key = $i;
+                }
                 $value = self::formatValue($value, isset($types[$key]) ? $types[$key] : null);
+                $i++;
             });
 
             $keys = array_keys($params);
@@ -51,6 +59,10 @@ class QueryDumper {
                     $i++;
                 }
             }
+        }
+
+        if($output) {
+            return $query;
         }
 
         💩($query);

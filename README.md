@@ -47,4 +47,4 @@ Please only install this package for development:
 
 ## Requirements
 - Symfony 3.3+
-- PHP 7+
+- PHP 7.1+
