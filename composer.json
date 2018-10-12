@@ -1,6 +1,6 @@
 {
   "name": "jspeedz/debug-pooper-symfony",
-  "description": "Some more debugging methods to be used in a symfony framework",
+  "description": "Some more debugging methods to be used in a symfony framework (or standalone)",
   "keywords": [
     "dump",
     "debug"
