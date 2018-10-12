@@ -41,19 +41,9 @@ Result:
 `SELECT 1 FROM x WHERE y = 1234`
 
 ## Install
-Please only install this package for dev:
+Please only install this package for development:
 
 `composer require --dev jspeedz/debug-pooper-symfony`
-
-Enable the core debug methods you want manually by adding the following files to your core _composer.json_ file in the _autoload-dev_ section:
-```json
-    "autoload-dev": {
-        "files": [
-            "vendor/jspeedz/debug-pooper-symfony/src/Component/VarDumper/Resources/functions/dump.php",
-            "vendor/jspeedz/debug-pooper-symfony/src/Component/VarDumper/Resources/functions/dumpquery.php"
-        ]
-    },
-```
 
 ## Requirements
 - Symfony 3.3+
