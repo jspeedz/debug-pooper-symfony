@@ -11,6 +11,14 @@ matrix:
   allow_failures:
   - php: 7.3
 
+before_install:
+- composer install --dev
+
 before_script:
 - phpenv config-rm xdebug.ini
-- composer install
+
+script:
+- ./vendor/bin/phpunit --coverage-clover ./tests/logs/clover.xml
+
+after_script:
+- php vendor/bin/coveralls -v
