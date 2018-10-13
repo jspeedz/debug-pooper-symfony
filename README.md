@@ -2,7 +2,7 @@
 
 Tired of using symfony's dump(); method? Use 💩(); instead!
 
-[![Build Status](https://travis-ci.com/jspeedz/debug-pooper-symfony.svg?branch=master)](https://travis-ci.com/jspeedz/debug-pooper-symfony) [![GitHub license](https://img.shields.io/github/license/jspeedz/debug-pooper-symfony.svg)](https://github.com/jspeedz/debug-pooper-symfony/blob/master/LICENSE)
+[![Build Status](https://travis-ci.com/jspeedz/debug-pooper-symfony.svg?branch=master)](https://travis-ci.com/jspeedz/debug-pooper-symfony) [![Coverage Status](https://coveralls.io/repos/github/jspeedz/debug-pooper-symfony/badge.svg?branch=master)](https://coveralls.io/github/jspeedz/debug-pooper-symfony?branch=master) [![GitHub license](https://img.shields.io/github/license/jspeedz/debug-pooper-symfony.svg)](https://github.com/jspeedz/debug-pooper-symfony/blob/master/LICENSE)
 
 ## More useful features
 ### Dumping prepared statements
