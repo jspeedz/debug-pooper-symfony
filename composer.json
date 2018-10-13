@@ -28,7 +28,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "Jspeedz\\DebugPooper\\Tests": "src/Tests"
+      "Jspeedz\\DebugPooper\\Tests\\": "src/Tests"
     }
   },
   "require-dev": {
@@ -37,6 +37,6 @@
     "ext-PDO": "^7.1",
     "symfony/var-dumper": "^4.1",
     "phpunit/phpunit": "^7.5@dev",
-    "satooshi/php-coveralls": "2.0.x-dev"
+    "php-coveralls/php-coveralls": "2.1.x-dev"
   }
 }
