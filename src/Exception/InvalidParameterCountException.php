@@ -3,4 +3,4 @@ namespace Jspeedz\DebugPooper\Exception;
 
 use Exception;
 
-class InvalidParameterException extends Exception {}
+class InvalidParameterCountException extends Exception {}
