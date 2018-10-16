@@ -42,6 +42,15 @@ Result:
 
 `SELECT 1 FROM x WHERE y = 1234`
 
+### Dumping request information
+```php
+dumpRequest();
+```
+
+Result:
+
+`To be determined..`
+
 ## Code templates
 ### PhpStorm Live templates
 ```php
