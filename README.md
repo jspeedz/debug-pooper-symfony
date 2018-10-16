@@ -42,6 +42,22 @@ Result:
 
 `SELECT 1 FROM x WHERE y = 1234`
 
+## Code templates
+### PhpStorm Live templates
+```php
+if($this->container->getParameter('kernel.environment') === 'dev') {
+    💩($END$);
+    die(__FILE__ . ':' . __LINE__);
+}
+```
+
+```php
+if($this->container->getParameter('kernel.environment') === 'dev') {
+    dumpQuery($END$);
+    die(__FILE__ . ':' . __LINE__);
+}
+```
+
 ## Install
 Please only install this package for development:
 
