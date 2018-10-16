@@ -8,7 +8,7 @@ use PDO;
 
 // Load the global 💩() function (and in extension, dump())
 require_once __DIR__ . '/../Component/VarDumper/Resources/functions/dump.php';
-// Load the global dumpquery() function
+// Load the global dumpQuery() function
 require_once __DIR__ . '/../Component/VarDumper/Resources/functions/dumpquery.php';
 
 class QueryDumper {
