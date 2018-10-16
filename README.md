@@ -67,6 +67,13 @@ if($this->container->getParameter('kernel.environment') === 'dev') {
 }
 ```
 
+```php
+if($this->container->getParameter('kernel.environment') === 'dev') {
+    dumpRequest();
+    die(__FILE__ . ':' . __LINE__);
+}
+```
+
 ## Install
 Please only install this package for development:
 
