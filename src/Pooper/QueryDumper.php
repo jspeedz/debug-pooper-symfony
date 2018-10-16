@@ -26,7 +26,7 @@ class QueryDumper {
      *
      * @throws InvalidParameterException
      */
-    public static function dump(string $query, array $params = [], array $types = [], $output = false): ?string {
+    public static function dump(string $query, array $params = [], array $types = [], bool $output = false): ?string {
         if(count($params) > 0) {
             if(count($types) !== 0 && count($types) !== count($params)) {
                 throw new InvalidParameterException('Param count did not match type count');
