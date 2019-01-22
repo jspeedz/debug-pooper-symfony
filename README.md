@@ -51,6 +51,14 @@ Result:
 
 `To be determined..`
 
+## Utilities
+### Timing a block of code
+```php
+$timer = debugTimer();
+sleep(1);
+$timeInMs = $timer();
+```
+
 ## Code templates
 ### PhpStorm Live templates
 ```php
@@ -70,6 +78,17 @@ if($this->container->getParameter('kernel.environment') === 'dev') {
 ```php
 if($this->container->getParameter('kernel.environment') === 'dev') {
     dumpRequest();
+    die(__FILE__ . ':' . __LINE__);
+}
+```
+
+```php
+if($this->container->getParameter('kernel.environment') === 'dev') {
+    $timer = debugTimer();
+    // Do some work
+    💩($END$);
+    $taskTookMs = $timer();
+    echo 'Completed task in ' . $taskTookMs . 'ms!' . PHP_EOL;
     die(__FILE__ . ':' . __LINE__);
 }
 ```
