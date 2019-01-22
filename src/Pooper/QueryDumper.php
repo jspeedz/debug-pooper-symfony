@@ -8,7 +8,7 @@ use PDO;
 
 // Load the global 💩() function (and in extension, dump())
 require_once __DIR__ . '/../Component/VarDumper/Resources/functions/dump.php';
-// Load the global dumpquery() function
+// Load the global dumpQuery() function
 require_once __DIR__ . '/../Component/VarDumper/Resources/functions/dumpquery.php';
 
 class QueryDumper {
@@ -26,7 +26,7 @@ class QueryDumper {
      *
      * @throws InvalidParameterCountException
      */
-    public static function dump(string $query, array $params = [], array $types = [], $output = false): ?string {
+    public static function dump(string $query, array $params = [], array $types = [], bool $output = false): ?string {
         if(count($params) > 0) {
             if(count($types) !== 0 && count($types) !== count($params)) {
                 throw new InvalidParameterCountException('Param count did not match type count');
