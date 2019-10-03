@@ -2,7 +2,7 @@
 namespace Jspeedz\DebugPooper\Pooper;
 
 use Doctrine\DBAL\Connection;
-use Jspeedz\DebugPooper\Exception\InvalidParameterException;
+use Jspeedz\DebugPooper\Exception\InvalidParameterCountException;
 use Jspeedz\DebugPooper\Exception\InvalidTypeException;
 use PDO;
 
@@ -20,16 +20,16 @@ class QueryDumper {
      * @param string $query The query
      * @param array $params The parameters to be inserted into the placeholders in the query
      * @param int[] $types The types the parameters are in
-     * @param bool $output Returns the result instead of dumping if true
+     * @param bool $return Returns the result instead of dumping if true
      *
-     * @return null|string Depends on $output
+     * @return null|string Depends on $return
      *
-     * @throws InvalidParameterException
+     * @throws InvalidParameterCountException
      */
-    public static function dump(string $query, array $params = [], array $types = [], bool $output = false): ?string {
+    public static function dump(string $query, array $params = [], array $types = [], bool $return = false): ?string {
         if(count($params) > 0) {
             if(count($types) !== 0 && count($types) !== count($params)) {
-                throw new InvalidParameterException('Param count did not match type count');
+                throw new InvalidParameterCountException('Param count did not match type count');
             }
 
             $i = 0;
@@ -61,11 +61,11 @@ class QueryDumper {
             }
         }
 
-        if($output) {
+        if($return) {
             return $query;
         }
 
-        💩($query);
+        return 💩($query);
     }
 
     /**

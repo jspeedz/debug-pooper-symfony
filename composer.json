@@ -31,7 +31,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "Jspeedz\\DebugPooper\\Tests": "src/Tests"
+      "Jspeedz\\DebugPooper\\Tests\\": "src/Tests"
     }
   },
   "require-dev": {
