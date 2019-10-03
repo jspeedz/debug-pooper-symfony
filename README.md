@@ -51,6 +51,30 @@ Result:
 
 `To be determined..`
 
+### Dumping simple XML element objects
+Converting and dumping SimpleXmlObjects into a readable string.
+
+#### Example 1:
+
+```php
+dumpSimpleXmlElement(
+    simplexml_load_string('<?xml version="1.0" encoding="utf-8" ?><root><someElement>someValue</someElement></root>')
+);
+```
+Result:
+
+```SimpleXML object (1 item)
+[
+    Element {
+        Name: 'root'
+        String Content: ''
+        Content in Default Namespace
+            Children: 1 - 1 'someElement'
+            Attributes: 0
+    }
+]
+```
+
 ## Utilities
 ### Timing a block of code
 ```php
@@ -89,6 +113,13 @@ if($this->container->getParameter('kernel.environment') === 'dev') {
     💩($END$);
     $taskTookMs = $timer();
     echo 'Completed task in ' . $taskTookMs . 'ms!' . PHP_EOL;
+    die(__FILE__ . ':' . __LINE__);
+}
+```
+
+```php
+if($this->container->getParameter('kernel.environment') === 'dev') {
+    dumpSimpleXmlElement($END$);
     die(__FILE__ . ':' . __LINE__);
 }
 ```
