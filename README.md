@@ -75,6 +75,25 @@ Result:
 ]
 ```
 
+
+### Dumping simple XML element object trees
+Converting and dumping SimpleXmlObjects into a readable tree string.
+
+#### Example 1:
+
+```php
+dumpSimpleXmlElementTree(
+    simplexml_load_string('<?xml version="1.0" encoding="utf-8" ?><root><someElement>someValue</someElement></root>')
+);
+```
+Result:
+
+```SimpleXML object (1 item)
+   [0] // <root>
+   	->someElement[0]
+   		(string) 'someValue' (9 chars)
+```
+
 ## Utilities
 ### Timing a block of code
 ```php
