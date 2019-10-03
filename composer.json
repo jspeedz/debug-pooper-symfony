@@ -39,5 +39,9 @@
     "symfony/var-dumper": "^4.1",
     "phpunit/phpunit": "^7.5@dev",
     "php-coveralls/php-coveralls": "2.1.x-dev"
+  },
+  "require": {
+    "ext-simplexml": "*",
+    "ext-dom": "*"
   }
 }
