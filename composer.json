@@ -19,9 +19,11 @@
       "Jspeedz\\DebugPooper\\": "src/"
     },
     "files": [
+      "src/Component/VarDumper/Resources/functions/debugtimer.php",
       "src/Component/VarDumper/Resources/functions/dump.php",
       "src/Component/VarDumper/Resources/functions/dumpquery.php",
-      "src/Component/VarDumper/Resources/functions/dumprequest.php"
+      "src/Component/VarDumper/Resources/functions/dumprequest.php",
+      "src/Component/VarDumper/Resources/functions/dumpsimplexmlelement.php"
     ],
     "exclude-from-classmap": [
       "/Tests/"
