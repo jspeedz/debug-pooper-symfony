@@ -18,8 +18,10 @@ class SimpleXmlElementDumperTest extends TestCase {
 </root>');
 
         $result = SimpleXmlElementDumper::dump($element, true);
+        $result = str_replace("\n", "", $result);
+        $result = str_replace("\r", "", $result);
 
-        $this->assertEquals("SimpleXML object (1 item)\r\n[
+        $expected = "SimpleXML object (1 item)[
 	Element {
 		Name: 'root'
 		String Content: '\n    \n'
@@ -27,7 +29,10 @@ class SimpleXmlElementDumperTest extends TestCase {
 			Children: 1 - 1 'this'
 			Attributes: 0
 	}
-]
-", $result);
+]";
+        $expected = str_replace("\n", "", $expected);
+        $expected = str_replace("\r", "", $expected);
+
+        $this->assertEquals($expected, $result);
     }
 }
