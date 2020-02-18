@@ -46,7 +46,7 @@ class QueryDumper {
             if(!is_numeric(array_pop($keys))) {
                 // These are named indexes
                 foreach($params as $param => $value) {
-                    $query = str_replace(':' . $param, $value, $query);
+                    $query = preg_replace('/:' . $param . '\b/', $value, $query);
                 }
             }
             else {
