@@ -143,6 +143,13 @@ if($this->container->getParameter('kernel.environment') === 'dev') {
 }
 ```
 
+```php
+if($this->container->getParameter('kernel.environment') === 'dev') {
+    dumpSimpleXmlElementTree($END$);
+    die(__FILE__ . ':' . __LINE__);
+}
+```
+
 ## Install
 Please only install this package for development:
 

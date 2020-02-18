@@ -55,6 +55,15 @@ namespace Jspeedz\DebugPooper\Tests\Pooper {
 			$this->assertEquals('SELECT 1 FROM x WHERE x.y = 1 OR x.z = 2 AND x.x = "abc" AND x.a IN(1, 2, 3) AND x.b IN("a", "b", "c")', $result);
 		}
 
+        public function testQueryDumperWithAliasedParametersEndingOnSelf() {
+            $result = QueryDumper::dump('SELECT 1 FROM x WHERE x.y = :dingExtended OR x.z = :ding', [
+                'ding' => 'a',
+                'dingExtended' => 'b',
+            ], [], true);
+
+            $this->assertEquals('SELECT 1 FROM x WHERE x.y = "b" OR x.z = "a"', $result);
+        }
+
 		public function testQueryDumperWithParametersAndTypes() {
 			$result = QueryDumper::dump('SELECT 1 FROM x WHERE x.y = ? OR x.z = ? AND x.a IN(?) AND x.b IN(?)', [
 				1,
