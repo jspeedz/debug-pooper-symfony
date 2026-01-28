@@ -36,12 +36,12 @@
     }
   },
   "require-dev": {
-    "php": "^7.1",
-    "doctrine/dbal": "^2.8",
-    "ext-PDO": "^7.1",
-    "symfony/var-dumper": "^4.1",
-    "phpunit/phpunit": "^7.5@dev",
-    "php-coveralls/php-coveralls": "2.1.x-dev"
+    "php": ">=8.1",
+    "ext-PDO": ">=8.1",
+    "doctrine/dbal": "^4",
+    "symfony/var-dumper": "^6.0",
+    "phpunit/phpunit": "^12.5",
+    "php-coveralls/php-coveralls": "2.9"
   },
   "require": {
     "ext-simplexml": "*",
