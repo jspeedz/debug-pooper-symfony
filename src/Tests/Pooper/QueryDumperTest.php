@@ -17,7 +17,9 @@ namespace Jspeedz\DebugPooper\Tests\Pooper {
     use Jspeedz\DebugPooper\Exception\InvalidParameterCountException;
     use Jspeedz\DebugPooper\Exception\InvalidTypeException;
     use Jspeedz\DebugPooper\Pooper\QueryDumper;
-	use PHPUnit\Framework\TestCase;
+    use PHPUnit\Framework\Attributes\Test;
+    use PHPUnit\Framework\Attributes\TestWith;
+    use PHPUnit\Framework\TestCase;
 
     enum UnbackedEnumeration {
         case TEST;
@@ -108,11 +110,19 @@ namespace Jspeedz\DebugPooper\Tests\Pooper {
 			QueryDumper::dump('x', [1, 2], [1, 2, 4]);
 		}
 
-		public function testInvalidTypeException() {
+        #[Test]
+        #[TestWith([
+            'value' => ArrayParameterType::BINARY,
+            'expectedMessage' => 'Type is not implemented (BINARY)',
+        ], 'Unhandled type')]
+		public function testInvalidTypeException(
+            mixed $value,
+            string $expectedMessage,
+        ) {
             $this->expectException(InvalidTypeException::class);
-            $this->expectExceptionMessage(UnbackedEnumeration::TEST->name);
+            $this->expectExceptionMessage($expectedMessage);
 
-			QueryDumper::dump('x', [1], [UnbackedEnumeration::TEST]);
+			QueryDumper::dump('x', [1], [$value]);
 		}
 	}
 }

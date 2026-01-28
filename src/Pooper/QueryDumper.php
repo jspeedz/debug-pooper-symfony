@@ -71,13 +71,14 @@ class QueryDumper {
     }
 
     /**
-     * @param mixed $value
-     * @param null|ParameterType|ArrayParameterType $type
-     *
      * @return int|string
+     *
      * @throws InvalidTypeException
      */
-    private static function formatValue($value, $type = null) {
+    private static function formatValue(
+        mixed $value,
+        null|ParameterType|ArrayParameterType $type = null,
+    ) {
         if($type === null) {
             // Do a best guess
             if(is_array($value)) {
@@ -113,6 +114,8 @@ class QueryDumper {
                 return implode(', ', $value);
         }
 
-        throw new InvalidTypeException('Type is not implemented (' . $type->name . ')');
+        throw new InvalidTypeException(
+            'Type is not implemented (' . ($type?->name ?? get_debug_type($type)) . ')',
+        );
     }
 }

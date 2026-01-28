@@ -39,9 +39,9 @@
     "php": ">=8.1",
     "ext-PDO": ">=8.1",
     "doctrine/dbal": "^4",
-    "symfony/var-dumper": "^4.1",
+    "symfony/var-dumper": "^6.0",
     "phpunit/phpunit": "^12.5",
-    "php-coveralls/php-coveralls": "2.1.x-dev"
+    "php-coveralls/php-coveralls": "2.9"
   },
   "require": {
     "ext-simplexml": "*",
