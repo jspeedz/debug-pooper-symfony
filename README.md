@@ -157,5 +157,5 @@ Please only install this package for development:
 
 ## Requirements
 - Symfony 3.3+
-- PHP 7.1+
+- PHP 8.1+
 - Doctrine DBAL 4+

@@ -14,8 +14,14 @@ namespace Jspeedz\DebugPooper\Pooper {
 namespace Jspeedz\DebugPooper\Tests\Pooper {
     use Doctrine\DBAL\ArrayParameterType;
     use Doctrine\DBAL\ParameterType;
-	use Jspeedz\DebugPooper\Pooper\QueryDumper;
+    use Jspeedz\DebugPooper\Exception\InvalidParameterCountException;
+    use Jspeedz\DebugPooper\Exception\InvalidTypeException;
+    use Jspeedz\DebugPooper\Pooper\QueryDumper;
 	use PHPUnit\Framework\TestCase;
+
+    enum UnbackedEnumeration {
+        case TEST;
+    }
 
 	class QueryDumperTest extends TestCase {
 		public function testQueryDumperWithoutParameters() {
@@ -96,17 +102,17 @@ namespace Jspeedz\DebugPooper\Tests\Pooper {
 			$this->assertEquals('SELECT 1 FROM x WHERE x.y = 1 OR x.z = "2" AND x.a IN(1, 2, 3) AND x.b IN("a", "b", "c")', $result);
 		}
 
-		/**
-		 * @expectedException \Jspeedz\DebugPooper\Exception\InvalidParameterCountException
-		 */
 		public function testInvalidParameterCountException() {
+            $this->expectException(InvalidParameterCountException::class);
+
 			QueryDumper::dump('x', [1, 2], [1, 2, 4]);
 		}
-		/**
-		 * @expectedException \Jspeedz\DebugPooper\Exception\InvalidTypeException
-		 */
+
 		public function testInvalidTypeException() {
-			QueryDumper::dump('x', [1], [-10]);
+            $this->expectException(InvalidTypeException::class);
+            $this->expectExceptionMessage(UnbackedEnumeration::TEST->name);
+
+			QueryDumper::dump('x', [1], [UnbackedEnumeration::TEST]);
 		}
 	}
 }

@@ -2,10 +2,8 @@
 namespace Jspeedz\DebugPooper\Pooper;
 
 use Doctrine\DBAL\ArrayParameterType;
-use Doctrine\DBAL\Connection;
 use Jspeedz\DebugPooper\Exception\InvalidParameterCountException;
 use Doctrine\DBAL\ParameterType;
-use Jspeedz\DebugPooper\Exception\InvalidParameterException;
 use Jspeedz\DebugPooper\Exception\InvalidTypeException;
 use PDO;
 
@@ -28,6 +26,7 @@ class QueryDumper {
      * @return null|string Depends on $return
      *
      * @throws InvalidParameterCountException
+     * @throws InvalidTypeException
      */
     public static function dump(string $query, array $params = [], array $types = [], bool $return = false): ?string {
         if(count($params) > 0) {
@@ -114,6 +113,6 @@ class QueryDumper {
                 return implode(', ', $value);
         }
 
-        throw new InvalidTypeException('Type is not implemented (' . get_class($type) . ')');
+        throw new InvalidTypeException('Type is not implemented (' . $type->name . ')');
     }
 }
