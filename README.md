@@ -17,7 +17,7 @@ dumpQuery(
         1234
     ],
     [
-        \PDO::PARAM_INT
+        \Doctrine\DBAL\ParameterType::INTEGER
     ]
 );
 ```
@@ -34,7 +34,7 @@ dumpQuery(
         'some_named_value' => 1234
     ],
     [
-        \PDO::PARAM_INT
+        \Doctrine\DBAL\ParameterType::INTEGER
     ]
 );
 ```
@@ -101,3 +101,4 @@ Please only install this package for development:
 ## Requirements
 - Symfony 3.3+
 - PHP 7.1+
+- Doctrine DBAL 4+

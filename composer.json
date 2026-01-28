@@ -29,14 +29,14 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "Jspeedz\\DebugPooper\\Tests": "src/Tests"
+      "Jspeedz\\DebugPooper\\Tests\\": "src/Tests"
     }
   },
   "require-dev": {
-    "php": "^7.1",
-    "doctrine/dbal": "^2.8",
-    "ext-PDO": "^7.1",
+    "php": ">=7.1",
+    "ext-PDO": ">=7.1",
+    "doctrine/dbal": "^4",
     "symfony/var-dumper": "^4.1",
-    "phpunit/phpunit": "^7.5@dev"
+    "phpunit/phpunit": "^12.5"
   }
 }

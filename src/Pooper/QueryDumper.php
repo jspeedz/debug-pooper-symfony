@@ -1,7 +1,9 @@
 <?php
 namespace Jspeedz\DebugPooper\Pooper;
 
+use Doctrine\DBAL\ArrayParameterType;
 use Doctrine\DBAL\Connection;
+use Doctrine\DBAL\ParameterType;
 use Jspeedz\DebugPooper\Exception\InvalidParameterException;
 use Jspeedz\DebugPooper\Exception\InvalidTypeException;
 use PDO;
@@ -19,7 +21,7 @@ class QueryDumper {
      *
      * @param string $query The query
      * @param array $params The parameters to be inserted into the placeholders in the query
-     * @param int[] $types The types the parameters are in
+     * @param list<ParameterType|ArrayParameterType> $types The types the parameters are in
      * @param bool $output Returns the result instead of dumping if true
      *
      * @return null|string Depends on $output
@@ -70,12 +72,12 @@ class QueryDumper {
 
     /**
      * @param mixed $value
-     * @param null|int $type
+     * @param null|ParameterType|ArrayParameterType $type
      *
      * @return int|string
      * @throws InvalidTypeException
      */
-    private static function formatValue($value, ?int $type = null) {
+    private static function formatValue($value, $type = null) {
         if($type === null) {
             // Do a best guess
             if(is_array($value)) {
@@ -95,22 +97,22 @@ class QueryDumper {
         }
 
         switch($type) {
-            case PDO::PARAM_INT:
+            case ParameterType::INTEGER:
                 return (int) $value;
-            case PDO::PARAM_STR:
+            case ParameterType::STRING:
                 return '"' . $value . '"';
-            case Connection::PARAM_INT_ARRAY:
+            case ArrayParameterType::INTEGER:
                 $value = array_map(function($value) {
                     return (int) $value;
                 }, $value);
                 return implode(', ', $value);
-            case Connection::PARAM_STR_ARRAY:
+            case ArrayParameterType::STRING:
                 $value = array_map(function($value) {
                     return '"' . $value . '"';
                 }, $value);
                 return implode(', ', $value);
         }
 
-        throw new InvalidTypeException('Type is not implemented (' . $type . ')');
+        throw new InvalidTypeException('Type is not implemented (' . get_class($type) . ')');
     }
 }

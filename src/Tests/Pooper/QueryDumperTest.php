@@ -1,9 +1,9 @@
 <?php
 namespace Jspeedz\DebugPooper\Tests\Pooper;
 
-use Doctrine\DBAL\Connection;
+use Doctrine\DBAL\ArrayParameterType;
+use Doctrine\DBAL\ParameterType;
 use Jspeedz\DebugPooper\Pooper\QueryDumper;
-use PDO;
 use PHPUnit\Framework\TestCase;
 
 class QueryDumperTest extends TestCase {
@@ -44,10 +44,10 @@ class QueryDumperTest extends TestCase {
             [1, 2, 3],
             ['a', 'b', 'c'],
         ], [
-            PDO::PARAM_INT,
-            PDO::PARAM_STR,
-            Connection::PARAM_INT_ARRAY,
-            Connection::PARAM_STR_ARRAY,
+            ParameterType::INTEGER,
+            ParameterType::STRING,
+            ArrayParameterType::INTEGER,
+            ArrayParameterType::STRING,
         ], true);
 
         $this->assertEquals('SELECT 1 FROM x WHERE x.y = 1 OR x.z = "2" AND x.a IN(1, 2, 3) AND x.b IN("a", "b", "c")', $result);
@@ -60,10 +60,10 @@ class QueryDumperTest extends TestCase {
             'param3' => [1, 2, 3],
             'param4' => ['a', 'b', 'c'],
         ], [
-            PDO::PARAM_INT,
-            PDO::PARAM_STR,
-            Connection::PARAM_INT_ARRAY,
-            Connection::PARAM_STR_ARRAY,
+            ParameterType::INTEGER,
+            ParameterType::STRING,
+            ArrayParameterType::INTEGER,
+            ArrayParameterType::STRING,
         ], true);
 
         $this->assertEquals('SELECT 1 FROM x WHERE x.y = 1 OR x.z = "2" AND x.a IN(1, 2, 3) AND x.b IN("a", "b", "c")', $result);
